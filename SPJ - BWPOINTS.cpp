@@ -14,7 +14,7 @@ bool cmp(ii a, ii b) {
  
  
 signed main() {
-	scanf("%d", &n);
+	cin >> n;
 	for (int i = 1; i <= n * 2; i++) {
 		cin >> node[i].val;
 		if (i <= n) {
@@ -25,9 +25,6 @@ signed main() {
 		}
 	}
 	sort(node + 1, node + 1 + (2 * n), cmp);
-	//for (int i = 1; i <= 2 * n; i++) {
-	//	cout << "GT: " << node[i].val << endl;
-	//}
 	now = node[1].trd;
 	for (int i = 2; i <= 2 * n ;i++) {
 		if (now + node[i].trd == 1) {
