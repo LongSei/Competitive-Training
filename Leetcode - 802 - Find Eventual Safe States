@@ -1,0 +1,58 @@
+class Solution {
+    private int[] indegree;
+    private ArrayList<Integer>[] adjlist;
+    private int numNode;
+    private boolean[] safeNode; 
+    private boolean[] terminalNode;
+    private Queue<Integer> queue; 
+
+    public List<Integer> eventualSafeNodes(int[][] graph) {
+        numNode = graph.length;
+        adjlist = new ArrayList[numNode + 1];
+        safeNode = new boolean[numNode + 1];
+        terminalNode = new boolean[numNode + 1];
+        indegree = new int[numNode + 1];
+        queue = new LinkedList<>();
+
+        for (int index = 0; index < numNode; index++) {
+            adjlist[index] = new ArrayList<>();
+        }
+
+        for (int index = 0; index < numNode; index++) {
+            int[] relation = graph[index];
+            int numRelation = graph[index].length;
+            for (int relationIndex = 0; relationIndex < numRelation; relationIndex++) {
+                int relationNode = relation[relationIndex];
+                adjlist[relationNode].add(index);
+                indegree[index] += 1;
+            }
+        }
+
+        for (int index = 0; index < numNode; index++) {
+            if (indegree[index] == 0) {
+                safeNode[index] = true;
+                queue.add(index);
+            }
+        }
+
+        while (queue.isEmpty() == false) {
+            int current = queue.poll();
+            for (int v : adjlist[current]) {
+                indegree[v] -= 1;
+                if (indegree[v] == 0) {
+                    safeNode[v] = true;
+                    queue.add(v);
+                }
+            }
+        }
+
+
+        ArrayList<Integer> res = new ArrayList<>();
+        for (int index = 0; index < numNode; index++) {
+            if (safeNode[index]) {
+                res.add(index);
+            }
+        }
+        return res;
+    }
+}
