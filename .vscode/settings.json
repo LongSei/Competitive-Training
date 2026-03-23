@@ -1,0 +1,25 @@
+{
+    "files.associations": {
+        "vector": "cpp",
+        "iosfwd": "cpp",
+        "regex": "cpp",
+        "__bit_reference": "cpp",
+        "__node_handle": "cpp",
+        "atomic": "cpp",
+        "bitset": "cpp",
+        "deque": "cpp",
+        "__memory": "cpp",
+        "limits": "cpp",
+        "locale": "cpp",
+        "optional": "cpp",
+        "ratio": "cpp",
+        "scoped_allocator": "cpp",
+        "system_error": "cpp",
+        "tuple": "cpp",
+        "chrono": "cpp",
+        "cstddef": "cpp",
+        "filesystem": "cpp",
+        "random": "cpp",
+        "type_traits": "cpp"
+    }
+}
